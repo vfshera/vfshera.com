@@ -1,0 +1,42 @@
+---
+import { setDescription, setTitle } from "@utils/utils";
+import { SEO } from "astro-seo";
+import type { Props as IAstroSEO } from "astro-seo";
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
+import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+interface Props extends IAstroSEO {}
+const { title = "", description = "", ...props } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <SEO
+      title={setTitle(title)}
+      description={setDescription(description)}
+      {...props}
+    />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      html {
+        height: 100%;
+      }
+      body {
+        min-height: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </body>
+</html>
