@@ -1,0 +1,29 @@
+---
+import NavLink from "./NavLink.astro";
+
+---
+
+<div class="min-h-[70px] flex items-center">
+    <nav class="flex items-center gap-6 max-w-6xl mx-auto w-full">
+      <a href="/" class="text-zinc-300 font-semibold">VFS</a>
+
+      <ul class="flex items-center gap-6">
+        <li>
+          <NavLink href="/" title="Home" />
+        </li>
+        <li>
+          <NavLink href="/" title="Service" />
+        </li>
+        <li>
+          <NavLink href="/" title="Projects" />
+        </li>
+        <li>
+          <NavLink href="/" title="Contact" />
+
+        </li>
+      </ul>
+
+
+      <NavLink href="/" title="Get In Touch" class="ml-auto"/>
+    </nav>
+  </div>
