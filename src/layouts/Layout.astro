@@ -1,10 +1,13 @@
 ---
 import { setDescription, setTitle } from "@/utils";
+import Navbar from "@/components/nav/Navbar.astro";
+import Footer from "@/components/Footer.astro";
 import { SEO } from "astro-seo";
 import type { Props as IAstroSEO } from "astro-seo";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 interface Props extends IAstroSEO {}
 const { title = "", description = "", ...props } = Astro.props;
+import "@/style.css";
 ---
 
 <!DOCTYPE html>
@@ -26,7 +29,9 @@ const { title = "", description = "", ...props } = Astro.props;
   <body
     class="bg-gradient-to-br h-full flex flex-col min-h-full from-slate-900 to-neutral-900"
   >
+    <Navbar />
     <slot />
+    <Footer />
     <style is:global>
       html {
         height: 100%;
