@@ -1,0 +1,106 @@
+---
+---
+
+<section class="skills">
+    <div class="wrapper skills__wrapper bottom-border">
+        <h2 class="visually-hidden">Skills</h2>
+        <div class="skills__item">
+            <h3 class="skills__title">HTML</h3>
+            <p class="skills__description">4 Years Experience</p>
+        </div>
+        <div class="skills__item">
+            <h3 class="skills__title">CSS</h3>
+            <p class="skills__description">4 Years Experience</p>
+        </div>
+        <div class="skills__item">
+            <h3 class="skills__title">JavaScript</h3>
+            <p class="skills__description">4 Years Experience</p>
+        </div>
+        <div class="skills__item">
+            <h3 class="skills__title">Accessibility</h3>
+            <p class="skills__description">4 Years Experience</p>
+        </div>
+        <div class="skills__item">
+            <h3 class="skills__title">React</h3>
+            <p class="skills__description">3 Years Experience</p>
+        </div>
+        <div class="skills__item">
+            <h3 class="skills__title">Sass</h3>
+            <p class="skills__description">3 Years Experience</p>
+        </div>
+    </div>
+    <img
+        class="skills__rings"
+        src="/images/pattern-rings.svg"
+        alt=""
+        width="530"
+        height="129"
+    />
+</section>
+
+<style>
+    /* SKILLS */
+
+    .skills {
+        position: relative;
+    }
+
+    .skills__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-block: 40px;
+    }
+
+    .skills__item {
+        text-align: center;
+    }
+
+    .skills__title {
+        font-size: 2rem;
+        font-size: clamp(2rem, 0.33rem + 7.11vw, 3rem);
+        line-height: 1.17;
+        margin-block-end: 2px;
+    }
+
+    .skills__description {
+        margin-block-end: 0;
+    }
+
+    .skills__rings {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        translate: 0 50%;
+    }
+
+    @media (min-width: 37.5em) {
+        .skills__wrapper {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 52px 24px;
+            border: none;
+            padding-block: 52px 0;
+        }
+
+        .skills__item {
+            text-align: left;
+        }
+
+        .skills__rings {
+            translate: 40% 50%;
+        }
+    }
+
+    @media (min-width: 62.5em) {
+        .skills__wrapper {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 58px 30px;
+            padding-block-start: 72px;
+        }
+
+        .skills__rings {
+            translate: -40% 50%;
+            left: 100%;
+        }
+    }
+</style>
