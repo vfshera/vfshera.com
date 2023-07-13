@@ -1,25 +1,19 @@
 ---
-import Navbar from "@/components/nav/Navbar.astro";
 import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Skills from "@/components/sections/Skills.astro";
+import Projects from "@/components/sections/Projects.astro";
+import Contact from "@/components/sections/Contact.astro";
 ---
 
 <Layout>
-  <main id="Home" class="">
-    <Navbar />
-    <section class="bg-red-400 w-full">
-      <h1
-        class="text-3xl text-center sm:text-5xl lg:text-7xl font-extrabold text-indigo-50 relative before:absolute"
-      >
-        Franklin Shera
-      </h1>
-      <p class="text-center text-xs md:text-base text-zinc-300">
-        Website Still in Development
-        <br class="sm:hidden" />
+  <main id="home">
+    <Hero />
 
-        <a href="mailto:frank@vfshera.com" class="underline text-blue-400"
-          >Contact Me 📨</a
-        >
-      </p>
-    </section>
+    <Skills />
+
+    <Projects />
+
+    <Contact />
   </main>
 </Layout>
