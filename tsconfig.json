@@ -3,10 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@layouts/*": ["src/layouts/*"],
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@data/*": ["src/data/*"],
       "@/*": ["src/*"]
     },
     "types": ["@astrojs/image/client"]

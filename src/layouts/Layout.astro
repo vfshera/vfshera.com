@@ -1,7 +1,7 @@
 ---
-import { setDescription, setTitle } from "@utils/utils";
+import { setDescription, setTitle } from "@/utils";
 import { SEO } from "astro-seo";
-import type { Props as IAstroSEO } from "astro-seo"; 
+import type { Props as IAstroSEO } from "astro-seo";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 interface Props extends IAstroSEO {}
 const { title = "", description = "", ...props } = Astro.props;
@@ -23,13 +23,14 @@ const { title = "", description = "", ...props } = Astro.props;
 
     <slot name="head" />
   </head>
-  <body class=" bg-gradient-to-br h-full flex flex-col min-h-full from-slate-900 to-neutral-900">
+  <body
+    class="bg-gradient-to-br h-full flex flex-col min-h-full from-slate-900 to-neutral-900"
+  >
     <slot />
     <style is:global>
       html {
         height: 100%;
       }
-      
     </style>
   </body>
 </html>

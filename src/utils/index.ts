@@ -1,4 +1,4 @@
-import { APP } from "@data/config";
+import { APP } from "@/data/config";
 
 // set page title
 export function setTitle(title: string) {
