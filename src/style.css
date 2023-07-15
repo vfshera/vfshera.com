@@ -20,53 +20,12 @@
   --transition: 250ms ease-in-out;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 html {
-  box-sizing: border-box;
-  font-size: 100%;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-body,
-input,
-textarea,
-button {
-  font-family: "Space Grotesk", sans-serif;
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  background-color: var(--bg-body);
-  color: var(--text1);
-  font-size: var(--fs-18);
-  line-height: 1.56;
-  /* padding-bottom: 25rem; */
-}
-
-.bg-less-dark {
-  background-color: var(--bg-body2);
-}
-
-h1,
-h2,
-h3,
-p {
-  margin-block-start: 0;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1;
+  /* overflow-x: hidden; */
 }
 
 .header-xl {
