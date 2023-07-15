@@ -3,7 +3,7 @@ import { socials } from "@/data";
 
 ---
 
-{socials.map(social  => ( <a href={social.link} class="header__social">
+{socials.map(social  => ( <a href={social.link} class="[&>svg>path]:transition-[fill] [&>svg>path]:duration-[250ms] [&>svg>path]:ease-in-out  [&:hover>svg>path]:fill-accent">
            
     {social.name === "Github" && ( <svg
          xmlns="http://www.w3.org/2000/svg"
