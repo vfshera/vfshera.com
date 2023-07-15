@@ -4,6 +4,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: { "space-grotesk": ["Space Grotesk", "sans-serif"] },
       colors: {
         dark: {
           1: "#141414",
