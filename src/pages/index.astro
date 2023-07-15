@@ -1,13 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/sections/Hero.astro";
-import Skills from "@/components/sections/Skills.astro";
-import Projects from "@/components/sections/Projects.astro";
-import Contact from "@/components/sections/Contact.astro";
+import Hero from "@/sections/Hero.astro";
+import Skills from "@/sections/Skills.astro";
+import Projects from "@/sections/Projects.astro";
+import Contact from "@/sections/Contact.astro";
 ---
 
 <Layout>
-  <main id="home">
+  <div id="home">
     <Hero />
 
     <Skills />
@@ -15,5 +15,5 @@ import Contact from "@/components/sections/Contact.astro";
     <Projects />
 
     <Contact />
-  </main>
+  </div>
 </Layout>
