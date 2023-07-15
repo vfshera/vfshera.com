@@ -4,22 +4,14 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      animation: {
-        hideOut: "hideOut 5s infinite forwards",
-      },
-      keyframes: {
-        hideOut: {
-          "0%,50%,100%": {
-            backgroundColor: "#e3e3e399",
-            left: "0",
-            transform: "rotate(0deg)",
-          },
-          "25%,75%,85%": {
-            backgroundColor: "transparent",
-            left: "100%",
-            transform: "rotate(360deg)",
-          },
+      colors: {
+        dark: {
+          1: "#141414",
+          2: "#242424",
         },
+        accent: "#4ce19e",
+        gray: "#d9d9d9",
+        red: "#ff6f5c",
       },
     },
   },
