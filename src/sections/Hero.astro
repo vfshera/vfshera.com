@@ -1,237 +1,29 @@
 ---
-import { APP } from "@/data";
+import { APP, tagLine } from "@/data";
 ---
 
-<section class="hero">
-    <div class="wrapper hero__wrapper bottom-border">
-        <div class="hero__content">
-            <picture>
-                <source
-                    media="(min-width: 62.5em)"
-                    srcset="/images/image-profile-desktop.webp"
-                />
-                <source
-                    media="(min-width: 37.5em)"
-                    srcset="/images/image-profile-tablet.webp"
-                />
-                <img
-                    class="hero__image"
-                    src="/images/image-profile-mobile.webp"
-                    alt={``}
-                    width-="174"
-                    height="383"
-                />
-            </picture>
-            <img
-                class="hero__rings"
-                src="/images/pattern-rings.svg"
-                alt=""
-                width="530"
-                height="129"
-            />
-            <img
-                class="hero__circle"
-                src="/images/pattern-circle.svg"
-                alt=""
-                width="129"
-                height="129"
-            />
-            <div class="hero__text">
-                <h1 class="hero__headline header-xl">
-                    Nice to<br />
-                    meet you! I'm <span>{APP.name}</span>.
-                </h1>
-                <p class="hero__description">
-                    Based in Kenya, I'm a front-end developer passionate about
-                    building accessible web apps that users love.
-                </p>
-                <a href="#contact" class="hero__contact underline">Contact me</a
+<section class="hero sm:relative sm:-mt-[62px] lg:mt-0">
+    <div
+        class="wrapper hero__wrapper pb-20 sm:pb-[60px] lg:pb-[100px] lg:relative bottom-border"
+    >
+        <div class="flex items-center sm:items-start">
+            <div
+                class="relative text-center mt-[335px] sm:mt-[90px] sm:-mr-[30px] sm:text-left sm:z-[1] sm:flex-1 basis-[58vw] lg:m-0"
+            >
+                <h1
+                    class="mb-6 sm:mb-[60px] sm:[&>br]:inline-block lg:mb-[43px] lg:[&>br]:hidden [&>br]:hidden header-xl"
                 >
+                    Nice to<br />
+                    meet you! I'm <span
+                        class="bg-gradient-to-r from-accent/75 to-accent/75 bg-[0_1.18em] bg-[length:8px_4px] bg-repeat-x"
+                        >{APP.name}</span
+                    >.
+                </h1>
+                <p class="mb-6 sm:mb-[34px] lg:mb-[66px] lg:w-[38ch]">
+                    {tagLine}
+                </p>
+                <a href="#contact" class="underline">Contact me</a>
             </div>
         </div>
     </div>
 </section>
-
-<style>
-    /*  HERO */
-
-    .hero__wrapper {
-        padding-bottom: 80px;
-    }
-
-    .hero__image {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        translate: -50%;
-        width: 174px;
-        height: auto;
-    }
-
-    .hero__rings {
-        position: absolute;
-        right: 50%;
-        top: 130px;
-        /* 8.125rem; */
-        z-index: -1;
-        /* width: 33.125rem; */
-        height: auto;
-    }
-
-    .hero__circle {
-        position: relative;
-        top: 171px;
-        margin-bottom: -129px;
-        translate: calc(100vw - 64px - 16px);
-    }
-
-    .hero__text {
-        position: relative;
-        text-align: center;
-        margin-block-start: 335px;
-    }
-
-    .hero__headline {
-        margin-block-end: 24px;
-    }
-
-    .hero__headline > br {
-        display: none;
-    }
-
-    h1 > span {
-        background-image: linear-gradient(
-            to right,
-            var(--accent) 75%,
-            var(--accent) 75%
-        );
-        background-position: 0 1.18em;
-        background-repeat: repeat-x;
-        background-size: 8px 4px;
-    }
-
-    .hero__description {
-        margin-block-end: 24px;
-    }
-
-    @media (min-width: 37.5em) {
-        .hero {
-            position: relative;
-            margin-block-start: -62px;
-        }
-
-        .hero__wrapper {
-            padding-bottom: 60px;
-        }
-
-        .hero__content {
-            display: flex;
-            align-items: center;
-        }
-
-        .hero__content picture {
-            order: 2;
-        }
-
-        .hero__image {
-            position: relative;
-            width: 42vw;
-            max-width: 445px;
-            /* width: 322px; */
-            height: auto;
-            left: auto;
-            right: 0;
-            translate: 0;
-        }
-
-        .hero__rings {
-            top: 90px;
-            right: auto;
-            left: 0;
-            translate: -50%;
-        }
-
-        .hero__circle {
-            position: absolute;
-            top: auto;
-            right: 0;
-            bottom: 190px;
-            translate: 50%;
-            z-index: 1;
-        }
-
-        .hero__text {
-            /* width: 62vw; */
-            margin-block-start: 90px;
-            margin-right: -30px;
-            flex: 1 0 58vw;
-            text-align: left;
-            z-index: 1;
-        }
-
-        .hero__headline {
-            margin-block-end: 60px;
-        }
-
-        .hero__headline > br {
-            display: inline-block;
-        }
-
-        .hero__description {
-            /* width: 70%; */
-            margin-block-end: 34px;
-        }
-    }
-
-    @media (min-width: 62.5em) {
-        .hero {
-            margin-block-start: 0px;
-        }
-
-        .hero__wrapper {
-            position: relative;
-            padding-bottom: 100px;
-        }
-
-        .hero__content {
-            align-items: flex-start;
-        }
-
-        .hero__content picture {
-            margin-left: -80px;
-        }
-
-        .hero__image {
-            margin-block-start: -199px;
-        }
-
-        .hero__rings {
-            top: 0px;
-            translate: -50% -50%;
-        }
-
-        .hero__circle {
-            top: 322px;
-            right: 445px;
-        }
-
-        .hero__text {
-            margin-block-start: 0;
-            margin-right: 0;
-            flex: 1;
-        }
-
-        .hero__headline {
-            margin-block-end: 43px;
-        }
-
-        .hero__headline > br {
-            display: none;
-        }
-
-        .hero__description {
-            width: 38ch;
-            margin-block-end: 66px;
-        }
-    }
-</style>
