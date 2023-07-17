@@ -1,4 +1,4 @@
-import { APP } from "@/data";
+import { APP, tagLine } from "@/data";
 
 // set page title
 export function setTitle(title: string) {
@@ -7,5 +7,5 @@ export function setTitle(title: string) {
 
 //set page sescription
 export function setDescription(desc: string) {
-  return desc === "" ? APP.description : desc;
+  return desc === "" ? tagLine : desc;
 }
