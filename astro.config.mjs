@@ -6,15 +6,16 @@ import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://vfshera.com",
   experimental: {
-    assets: true
+    assets: true,
   },
   integrations: [tailwind(), compress(), alpinejs()],
   output: "server",
   image: {
-    service: sharpImageService()
+    service: sharpImageService(),
   },
   adapter: node({
-    mode: "middleware"
-  })
+    mode: "middleware",
+  }),
 });
