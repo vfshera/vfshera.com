@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
+drizzle
 # environment variables
 .env
 .env.production
