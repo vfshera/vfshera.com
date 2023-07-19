@@ -3,7 +3,7 @@ import { contactDesc } from "@/data";
 import Input from "@/components/form/Input.astro";
 import TextArea from "@/components/form/TextArea.astro"
 
- 
+import "toastify-js/src/toastify.css"
 
 
 ---
@@ -16,21 +16,22 @@ import TextArea from "@/components/form/TextArea.astro"
                 {contactDesc}
             </p>
         </div>
-        <form  method="post" class="contact-form">
-            <Input  label="Name"    type="text"
+        <form x-data="contactForm"  @submit.prevent="submit" class="contact-form">
+            <Input  label="Name" x-model="name"   type="text"
             id="name"
             name="name"
             placeholder="Name"
             minlength={5}
             required />
 
-            <Input label="Email"    type="email"
+            <Input label="Email"  x-model="email"   type="email"
             id="email"
             name="email"
             placeholder="Email"
             required/>
 
           <TextArea  label="Message" name="message"
+          x-model="message"
           id="message"
           cols="30"
           rows="3"
@@ -47,3 +48,78 @@ import TextArea from "@/components/form/TextArea.astro"
     <svg  class=" rings absolute left-0 bottom-[97px] -translate-x-[75%] -translate-y-[75%] sm:bottom-[47px] lg:-translate-x-[40%] lg:-translate-y-[20%] " xmlns="http://www.w3.org/2000/svg" width="530" height="129"><g fill="none" fill-rule="evenodd" stroke="#FFF" opacity=".25"><ellipse cx="265" cy="40" rx="264.5" ry="39.5"/><ellipse cx="265" cy="52" rx="264.5" ry="39.5"/><ellipse cx="265" cy="65" rx="264.5" ry="39.5"/><ellipse cx="265" cy="77" rx="264.5" ry="39.5"/><ellipse cx="265" cy="89" rx="264.5" ry="39.5"/></g></svg>
 </section>
  
+
+<script>
+
+import isEmail from "validator/lib/isEmail";
+
+import Toastify from 'toastify-js';
+
+ 
+
+const errors ={name:"",email:"",message:""}
+    document.addEventListener('alpine:init', () => {
+
+ 
+        Alpine.data('contactForm', () => ({
+            name:"",
+            email:"",
+            message:"",
+ 
+            submit() {
+                const name =this.name,email =this.email,message =this.message;
+
+                if (typeof name !== "string" || name.length < 5) {
+      errors.name += "Please enter a username. ";
+    }
+    if (typeof email !== "string" || !isEmail(email)) {
+      errors.email += "Email is not valid. ";
+    }  
+    if (typeof message !== "string" || message.length < 5) {
+      errors.message += "Message must be at least 5 characters. ";
+    }
+    const hasErrors = Object.values(errors).some(msg => msg)
+
+
+    if (!hasErrors) {
+ 
+      
+      fetch( "/api/email",{
+        method:"POST",
+        headers:{
+      "Content-Type":"application/json",
+      Accept: "application/json"
+     },
+     body:JSON.stringify({name, email, message})
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
+
+        if(!!res.message){
+            Toastify({
+  text: res.message ?? "Thank you for contacting",
+  duration: 3000, 
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+        }
+     })
+     .catch(err => {console.log(err);})
+     .finally(() =>{
+        this.name =""; 
+         this.email  = "";
+         this.message ="";
+     })
+     
+    }
+            },
+        }))
+    })
+</script>
