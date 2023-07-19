@@ -4,52 +4,7 @@ import Hero from "@/sections/Hero.astro";
 import Skills from "@/sections/Skills.astro";
 import Projects from "@/sections/Projects.astro";
 import Contact from "@/sections/Contact.astro";
-
-import {getAllContacts} from "@/db"
  
-
- 
-
-
-import isEmail from "validator/lib/isEmail"
- 
-
-
-const errors = { name: "", email: "", message: "" };
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const message = data.get("message");
-    if (typeof name !== "string" || name.length < 5) {
-      errors.name += "Please enter a username. ";
-    }
-    if (typeof email !== "string" || !isEmail(email)) {
-      errors.email += "Email is not valid. ";
-    }  
-    if (typeof message !== "string" || message.length < 5) {
-      errors.message += "Message must be at least 5 characters. ";
-    }
-    const hasErrors = Object.values(errors).some(msg => msg)
-
-
-    if (!hasErrors) {
- 
-      
-     const res = await fetch(Astro.url.origin+"/api/email",{method:"POST",headers:{
-      "Content-Type":"application/json"
-     },body:JSON.stringify({name, email, message})}).then(res => res.json())
-      console.log( res);
-
-      return Astro.redirect("/");
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
-}
  
 ---
 
@@ -61,6 +16,9 @@ if (Astro.request.method === "POST") {
 
     <Projects />
 
-    <Contact />
+    <Contact  />
   </div>
 </Layout>
+
+
+ 
