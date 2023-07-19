@@ -1,7 +1,7 @@
 export const APP = {
   name: "Franklin Shera",
   logoText: "vfshera",
-  DOMAIN: "",
+  DOMAIN: import.meta.env.DOMAIN,
 } as const;
 
 export const tagLine =
