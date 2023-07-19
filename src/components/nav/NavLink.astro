@@ -1,11 +1,9 @@
 ---
-interface Props extends astroHTML.JSX.AnchorHTMLAttributes{
-title: string
+interface Props extends astroHTML.JSX.AnchorHTMLAttributes {
+  title: string;
 }
 
-const {title,class:classNames = "",...props} = Astro.props;
-
-
+const { title, class: classNames = "", ...props } = Astro.props;
 ---
 
-<a class:list={["text-zinc-300",classNames]} {...props}>{title}</a>
+<a class:list={["text-zinc-300", classNames]} {...props}>{title}</a>
