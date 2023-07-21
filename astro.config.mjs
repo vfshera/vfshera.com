@@ -4,7 +4,6 @@ import compress from "astro-compress";
 import node from "@astrojs/node";
 import alpinejs from "@astrojs/alpinejs";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://vfshera.com",
   experimental: {

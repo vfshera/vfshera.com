@@ -22,10 +22,13 @@
     "astro-compress": "^1.1.49",
     "astro-google-fonts-optimizer": "^0.2.2",
     "astro-seo": "^0.7.5",
+    "dotenv": "^16.3.1",
     "drizzle-orm": "^0.27.2",
     "express": "^4.18.2",
     "mysql2": "^3.5.2",
+    "node-cron": "^3.0.2",
     "nodemailer": "^6.9.3",
+    "sequelize": "^6.32.1",
     "sharp": "^0.32.3",
     "tailwindcss": "^3.3.2",
     "toastify-js": "^1.12.0",
@@ -33,6 +36,9 @@
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.4",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.2",
+    "@types/node-cron": "^3.0.8",
     "@types/validator": "^13.7.17",
     "drizzle-kit": "^0.19.8"
   }
