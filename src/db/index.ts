@@ -13,9 +13,11 @@ const db = drizzle(connection);
 
 (async () => {
   if (import.meta.env.DEV) {
+    console.log();
     console.log("DRIZZLE: ⚡ Running migrations");
     await migrate(db, { migrationsFolder: "./drizzle" });
     console.log("DRIZZLE: Done ✅");
+    console.log();
   }
 })();
 
