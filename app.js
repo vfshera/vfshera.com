@@ -1,1 +1,1 @@
-(() => import("./server.js"))();
+(() => import("./backend/server.js"))();
