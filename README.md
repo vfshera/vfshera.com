@@ -1,47 +1,75 @@
-# Astro Starter Kit: Minimal
+# Qwik City App ⚡️
+
+- [Qwik Docs](https://qwik.builder.io/)
+- [Discord](https://qwik.builder.io/chat)
+- [Qwik GitHub](https://github.com/BuilderIO/qwik)
+- [@QwikDev](https://twitter.com/QwikDev)
+- [Vite](https://vitejs.dev/)
+
+---
+
+## Project Structure
+
+This project is using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+
+Inside your project, you'll see the following directory structure:
 
 ```
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
 ├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   └── ...
+└── src/
+    ├── components/
+    │   └── ...
+    └── routes/
+        └── ...
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `src/components`: Recommended directory for components.
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
 
-## 🧞 Commands
+## Add Integrations and deployment
 
-All commands are run from the root of the project, from a terminal:
+Use the `pnpm qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.builder.io/qwikcity/guides/static-site-generation/).
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
+```shell
+pnpm qwik add # or `yarn qwik add`
+```
 
-## 👀 Want to learn more?
+## Development
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+
+```shell
+npm start # or `yarn start`
+```
+
+> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+
+## Preview
+
+The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
+
+```shell
+pnpm preview # or `yarn preview`
+```
+
+## Production
+
+The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
+
+```shell
+pnpm build # or `yarn build`
+```
+
+## Express Server
+
+This app has a minimal [Express server](https://expressjs.com/) implementation. After running a full build, you can preview the build using the command:
+
+```
+pnpm serve
+```
+
+Then visit [http://localhost:8080/](http://localhost:8080/)

@@ -1,6 +1,4 @@
 {
-  "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  }
+  "css.lint.unknownAtRules": "ignore",
+  "material-icon-theme.activeIconPack": "qwik"
 }

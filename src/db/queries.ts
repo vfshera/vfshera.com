@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from ".";
 
 import { type Contact, type NewContact, contacts } from "./schema";
@@ -15,6 +15,13 @@ export async function getUnsentContacts() {
     .where(sql`${contacts.sent} = 0`);
 
   return unsentContacts;
+}
+
+export async function markSent(id: number) {
+  return await db
+    .update(contacts)
+    .set({ sent: true })
+    .where(eq(contacts.id, id));
 }
 
 export async function createContact(data: NewContact) {

@@ -55,3 +55,29 @@ export const skills = [
     startYear: 2019,
   },
 ];
+
+export const projects: {
+  photo: string;
+  name: string;
+  tags: string[];
+  links: { demo: string; code: string | null };
+}[] = [
+  {
+    photo: "/images/blue-bee.webp",
+    name: "Bluebee Care",
+    tags: ["Astro", "Tailwindcss", "GSAP"],
+    links: { demo: "http://astro-bluebee-care.vercel.app", code: null },
+  },
+  {
+    photo: "/images/sanjuna.webp",
+    name: "Sanjuna Fashion",
+    tags: ["Astro", "Tailwindcss"],
+    links: { demo: "https://sanjuna-fashion.vercel.app", code: null },
+  },
+  {
+    photo: "/images/polaris-village.webp",
+    name: "Polaris Village",
+    tags: ["Astro", "Tailwindcss"],
+    links: { demo: "https://polaris-village.vercel.app", code: null },
+  },
+];
