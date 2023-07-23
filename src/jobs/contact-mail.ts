@@ -1,6 +1,6 @@
 import { type Contact } from "@/db";
 import { getUnsentContacts, markSent } from "@/db";
-import { transporter } from "../mailer";
+import { transporter } from "@/mail/mailer";
 
 export default async function sendEmails() {
   console.log();
@@ -26,21 +26,25 @@ async function sendThankYouMail(contact: Contact) {
       from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM_ADDRESS}>`,
       to: process.env.MAIL_CC_ADDRESS,
       subject: `Thankyou ${contact.name} for reaching out`,
-      text:
-        "Thank you for your message. I'll get back to you soon. " +
-        contact.email,
-      html: "<b>Thank you for your message. I'll get back to you soon.</b>",
+      template: "thankyou",
+      context: {
+        name: contact.name,
+        signName: process.env.MAIL_FROM_NAME,
+      },
     })
     .catch(console.error);
 }
 async function sendContactMessage(contact: Contact) {
   transporter
     .sendMail({
-      from: '"Fred Foo 👻" <frank@mail.com>',
+      from: `"${contact.name}" <frank@mail.com>`,
       to: process.env.MAIL_CC_ADDRESS,
       subject: `You have a message from ${contact.name} (${contact.email})`,
-      text: "Hello world?",
-      html: `<p>${contact.message}</p>`,
+      template: "new-contact",
+      context: {
+        contact,
+        sentAt: contact.createdAt?.toLocaleTimeString(),
+      },
     })
     .catch(console.error);
 }
