@@ -11,7 +11,7 @@ export const useAddContact = globalAction$(
 
     if (r.affectedRows != 1) {
       return fail(500, {
-        message: "User could not be added",
+        message: "Failed to add contact!",
       });
     }
 
@@ -71,7 +71,11 @@ export default component$(() => {
 
           {action.value?.success && <p> Message sent!</p>}
           <div class="flex justify-center lg:justify-end">
-            <button type="submit" class="bg-transparent border-none">
+            <button
+              disabled={action.isRunning}
+              type="submit"
+              class="bg-transparent border-none"
+            >
               Send Message
             </button>
           </div>
