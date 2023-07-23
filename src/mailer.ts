@@ -1,7 +1,7 @@
 import { createTransport } from "nodemailer";
-import hbs from "nodemailer-express-handlebars";
+import hbs, { type HbsTransporter } from "nodemailer-express-handlebars";
 
-const transporter = createTransport({
+const transporter: HbsTransporter = createTransport({
   host: process.env.MAIL_HOST,
   port: Number(process.env.MAIL_PORT),
   secure: true,
@@ -9,17 +9,14 @@ const transporter = createTransport({
     user: process.env.MAIL_USERNAME,
     pass: process.env.MAIL_PASSWORD,
   },
-});
-
-transporter.use(
+}).use(
   "compile",
   hbs({
     extName: ".hbs",
-    viewPath: "templates",
+    viewPath: "mail/templates",
     viewEngine: {
       extname: ".hbs",
-      layoutsDir: "templates",
-      partialsDir: "templates",
+      defaultLayout: "",
     },
   })
 );
