@@ -45,6 +45,7 @@ const schedule = cron.schedule(
   () => {
     console.log();
     console.log("🚀 Start Running Tasks : ", getTime());
+
     jobs.forEach((job, index) => {
       try {
         job();
@@ -53,6 +54,7 @@ const schedule = cron.schedule(
         console.log(error);
       }
     });
+
     console.log("✅ Done Running Tasks : ", getTime());
   },
   { timezone: "Africa/Nairobi", scheduled: false }
