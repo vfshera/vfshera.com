@@ -12,8 +12,9 @@ import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import compression from "compression";
 
-import { getTime } from "./utils";
-import jobs from "./jobs";
+import { getTime } from "@/utils";
+import jobs from "@/jobs";
+import logger from "@/utils/logger";
 
 declare global {
   interface QwikCityPlatform extends PlatformNode {}
@@ -41,36 +42,34 @@ app.use(router);
 app.use(notFound);
 
 const schedule = cron.schedule(
-  "*/15 * * * * *",
+  "*/20 * * * * *",
   () => {
     console.log();
-    console.log("🚀 Start Running Tasks : ", getTime());
 
-    jobs.forEach((job, index) => {
+    jobs.forEach((job) => {
+      logger.info("🚀 Running ", job.name, getTime());
       try {
-        job();
+        job.callback();
       } catch (error) {
-        console.log("Failed to run task ", index + 1);
-        console.log(error);
+        logger.error("Failed to run ", job.name, error);
       }
     });
-
-    console.log("✅ Done Running Tasks : ", getTime());
   },
   { timezone: "Africa/Nairobi", scheduled: false }
 );
 
 const server = app.listen(PORT, () => {
   /* eslint-disable */
-  console.log(`Server started: http://localhost:${PORT}/`);
+  // console.log(`Server started: http://localhost:${PORT}/`);
+  logger.info(`Server started: http://localhost:${PORT}/`);
   schedule.start();
 });
 
 process.on("SIGTERM", () => {
-  console.info("SIGTERM signal received.");
+  logger.warn("SIGTERM signal received.");
   schedule.stop();
-  console.log("Closing http server.");
+  logger.warn("Closing http server.");
   server.close(() => {
-    console.log("Http server closed.");
+    logger.warn("Http server closed.");
   });
 });
