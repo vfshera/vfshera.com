@@ -1,3 +1,8 @@
 import sendEmails from "./contact-mail";
 
-export default [sendEmails];
+type Job = {
+  name: string;
+  callback: () => void;
+};
+
+export default <Job[]>[sendEmails];

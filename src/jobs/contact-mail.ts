@@ -1,19 +1,21 @@
 import { type Contact } from "@/db";
 import { getUnsentContacts, markSent } from "@/db";
 import { transporter } from "@/mailer";
+import { getTime } from "@/utils";
+import logger from "@/utils/logger";
 
 /**
  *
  * Send mail to me and contacts
  *
  */
-export default async function sendEmails() {
-  console.log("🌟 Checking contacts");
+async function sendEmails() {
+  console.log("🌟 Checking contacts", getTime());
 
   const unsentContacts = await getUnsentContacts();
 
   if (unsentContacts.length == 0) {
-    console.log("💤 No contacts to send");
+    console.log("💤 No contacts to send", getTime());
     return;
   }
 
@@ -23,11 +25,14 @@ export default async function sendEmails() {
       await sendContactMessage(contact);
       await markSent(contact.id);
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   });
 
-  console.log(`📨 Finished sending ${unsentContacts.length} contact(s)`);
+  console.log(
+    `📨 Finished sending ${unsentContacts.length} contact(s) `,
+    getTime()
+  );
 }
 /**
  * Sen thanyou mail
@@ -68,3 +73,5 @@ async function sendContactMessage(contact: Contact) {
     })
     .catch(console.error);
 }
+
+export default { name: "Send Contact Emails", callback: sendEmails };
