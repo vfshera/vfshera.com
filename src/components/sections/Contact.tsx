@@ -1,9 +1,11 @@
 import { contactDesc } from "@/data";
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import TextArea from "@/components/form/TextArea";
 import Input from "@/components/form/Input";
 import { globalAction$, zod$, z, Form } from "@builder.io/qwik-city";
 import { createContact } from "@/db";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 export const useAddContact = globalAction$(
   async (msg, { fail }) => {
@@ -29,6 +31,30 @@ export const useAddContact = globalAction$(
 export default component$(() => {
   const action = useAddContact();
 
+  const contactRef = useSignal<HTMLFormElement>();
+
+  useVisibleTask$(({ track }) => {
+    const success = track(() => action.value?.success);
+
+    if (success) {
+      if (contactRef.value) {
+        contactRef.value.reset();
+        Toastify({
+          text: "Thank you for contacting",
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "center",
+          stopOnFocus: true,
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          onClick: function () {},
+        }).showToast();
+      }
+    }
+  });
+
   return (
     <section id="contact" class="relative bg-slate-800">
       <div class="wrapper lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between py-[84px] bottom-border">
@@ -38,7 +64,12 @@ export default component$(() => {
           </h2>
           <p class="">{contactDesc}</p>
         </div>
-        <Form action={action} class="contact-form">
+        <Form
+          ref={contactRef}
+          action={action}
+          onSubmitCompleted$={() => {}}
+          class="contact-form"
+        >
           <Input
             label="Name"
             type="text"
@@ -69,7 +100,6 @@ export default component$(() => {
             required
           />
 
-          {action.value?.success && <p> Message sent!</p>}
           <div class="flex justify-center lg:justify-end">
             <button
               disabled={action.isRunning}
