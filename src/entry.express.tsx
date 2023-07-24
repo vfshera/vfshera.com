@@ -42,7 +42,7 @@ app.use(router);
 app.use(notFound);
 
 const schedule = cron.schedule(
-  "*/20 * * * * *",
+  "* * * * *",
   () => {
     console.log();
 
@@ -60,8 +60,6 @@ const schedule = cron.schedule(
 
 const server = app.listen(PORT, () => {
   /* eslint-disable */
-  // console.log(`Server started: http://localhost:${PORT}/`);
-  logger.info(`Server started: http://localhost:${PORT}/`);
   schedule.start();
 });
 
