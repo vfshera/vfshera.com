@@ -6,7 +6,7 @@ export default component$(() => {
     <section class="hero sm:relative sm:-mt-[62px] lg:mt-0">
       <div class="wrapper pb-20 sm:pb-[60px] lg:pb-[100px] lg:relative bottom-border">
         <div class="flex items-center sm:items-start">
-          <div class="relative text-center mt-[335px] sm:mt-28 sm:-mr-[30px] sm:text-left sm:z-[1] sm:flex-1 lg:basis-[58vw] lg:m-0">
+          <div class="relative text-center mt-[150px] sm:mt-28 sm:-mr-[30px] sm:text-left sm:z-[1] sm:flex-1 lg:basis-[58vw] lg:m-0">
             <h1 class="mb-6 sm:mb-[60px] sm:[&>br]:inline-block lg:mb-[43px] [&>br]:hidden text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] -tracking-[.028em]">
               Great to have you here!
               <br /> I'm{" "}
