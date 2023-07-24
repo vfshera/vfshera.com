@@ -6,15 +6,13 @@ import qwikCityPlan from "@qwik-city-plan";
 import { manifest } from "@qwik-client-manifest";
 import render from "./entry.ssr";
 import express from "express";
-import cron from "node-cron";
 import "dotenv/config";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import compression from "compression";
 
-import { getTime } from "@/utils";
-import jobs from "@/jobs";
 import logger from "@/utils/logger";
+import { schedule } from "./cron";
 
 declare global {
   interface QwikCityPlatform extends PlatformNode {}
@@ -40,23 +38,6 @@ app.use(express.static(distDir, { redirect: false }));
 app.use(router);
 
 app.use(notFound);
-
-const schedule = cron.schedule(
-  "* * * * *",
-  () => {
-    console.log();
-
-    jobs.forEach((job) => {
-      logger.info("🚀 Running ", job.name, getTime());
-      try {
-        job.callback();
-      } catch (error) {
-        logger.error("Failed to run ", job.name, error);
-      }
-    });
-  },
-  { timezone: "Africa/Nairobi", scheduled: false }
-);
 
 const server = app.listen(PORT, () => {
   /* eslint-disable */
