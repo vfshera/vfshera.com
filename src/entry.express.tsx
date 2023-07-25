@@ -10,6 +10,7 @@ import "dotenv/config";
 import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import compression from "compression";
+import helmet from "helmet";
 
 import logger from "@/utils/logger";
 import { schedule } from "./cron";
@@ -32,6 +33,16 @@ const { router, notFound } = createQwikCity({
 const app = express();
 
 app.use(compression());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        fontSrc: ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
+      },
+    },
+  })
+);
 app.use(`/build`, express.static(buildDir, { immutable: true, maxAge: "1y" }));
 app.use(express.static(distDir, { redirect: false }));
 
