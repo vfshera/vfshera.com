@@ -38,5 +38,9 @@ export const head: DocumentHead = {
       name: "description",
       content: tagLine,
     },
+    {
+      name: "og:image",
+      content: "/og.webp",
+    },
   ],
 };
