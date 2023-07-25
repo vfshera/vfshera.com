@@ -14,6 +14,7 @@ import helmet from "helmet";
 
 import logger from "@/utils/logger";
 import { schedule } from "./cron";
+import { getTime } from "./utils";
 
 declare global {
   interface QwikCityPlatform extends PlatformNode {}
@@ -51,15 +52,14 @@ app.use(router);
 app.use(notFound);
 
 const server = app.listen(PORT, () => {
-  /* eslint-disable */
   schedule.start();
 });
 
 process.on("SIGTERM", () => {
-  logger.warn("SIGTERM signal received.");
+  logger.warn("SIGTERM signal received. " + getTime());
   schedule.stop();
-  logger.warn("Closing http server.");
+  logger.warn("Closing http server. " + getTime());
   server.close(() => {
-    logger.warn("Http server closed.");
+    logger.warn("Http server closed. " + getTime());
   });
 });
