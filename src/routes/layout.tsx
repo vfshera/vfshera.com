@@ -1,23 +1,20 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
 import { type RequestHandler, type DocumentHead } from "@builder.io/qwik-city";
 
 import TheNavbar from "@/components/common/TheNavbar";
 import TheFooter from "@/components/common/TheFooter";
 import { APP, tagLine } from "@/data";
 
-export const onGet: RequestHandler = async ({ cacheControl }) => {
+export const onGet: RequestHandler = async ({ cacheControl, env, headers }) => {
   cacheControl({
     staleWhileRevalidate: 60 * 60 * 24 * 7,
     maxAge: 5,
   });
-};
 
-export const useServerTimeLoader = routeLoader$(() => {
-  return {
-    date: new Date().toISOString(),
-  };
-});
+  const domain = env.get("ORIGIN") || env.get("DOMAIN") || "";
+
+  headers.set("Origin", domain);
+};
 
 export default component$(() => {
   return (

@@ -44,6 +44,7 @@ app.use(
     },
   })
 );
+
 app.use(`/build`, express.static(buildDir, { immutable: true, maxAge: "1y" }));
 app.use(express.static(distDir, { redirect: false }));
 
