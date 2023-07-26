@@ -2,7 +2,7 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import { isDev } from "@builder.io/qwik/build";
 
 export const onRequest: RequestHandler = (event) => {
-  // if (isDev) return;
+  if (isDev) return;
 
   const csp = [
     `default-src 'self' `,
