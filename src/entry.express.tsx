@@ -36,12 +36,10 @@ const app = express();
 app.use(compression());
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        fontSrc: ["'self'", "fonts.googleapis.com", "fonts.gstatic.com"],
-      },
+    referrerPolicy: {
+      policy: "origin",
     },
+    contentSecurityPolicy: false,
   })
 );
 

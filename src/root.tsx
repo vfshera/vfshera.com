@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useServerData } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -9,13 +9,14 @@ import "@/global.css";
 import Head from "@/components/common/Head";
 
 export default component$(() => {
+  const nonce = useServerData<string | undefined>("nonce");
   return (
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <Head />
-        <ServiceWorkerRegister />
+        <ServiceWorkerRegister nonce={nonce} />
       </head>
       <body
         lang="en"
