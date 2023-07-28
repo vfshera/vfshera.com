@@ -3,7 +3,7 @@ import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
   return (
-    <section class="projects">
+    <section title="Projects" class="projects">
       <div class="wrapper py-[140px]">
         <div class="grid grid-cols-2 gap-10 justify-center text-center sm:justify-start sm:text-left sm:gap-y-[60px] sm:gap-x-6 lg:gap-y-[70px] lg:gap-x-[30px]">
           <h2 class="col-span-2 sm:col-span-1 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] -tracking-[.028em]">

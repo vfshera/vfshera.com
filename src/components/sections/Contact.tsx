@@ -56,7 +56,7 @@ export default component$(() => {
   });
 
   return (
-    <section id="contact" class="relative bg-slate-800">
+    <section title="Contact" id="contact" class="relative bg-slate-800">
       <div class="wrapper lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between py-[84px] bottom-border">
         <div class="text-center lg:text-left">
           <h2 class="lg:mb-9 mb-5 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] -tracking-[.028em]">

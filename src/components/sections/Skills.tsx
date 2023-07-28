@@ -3,7 +3,7 @@ import { component$ } from "@builder.io/qwik";
 
 const Skills = component$(() => {
   return (
-    <section class="skills relative overflow-x-hidden">
+    <section title="Skills" class="skills relative overflow-x-hidden">
       <div class="wrapper grid grid-cols-1 py-10 gap-6 bottom-border sm:grid-cols-2 sm:gap-y-[52px] sm:gap-x-6 sm:border-0 sm:pt-[52px] lg:grid-cols-3 lg:gap-y-[58px] lg:gap-x-[30px]">
         <h2 class="visually-hidden">Skills</h2>
 
