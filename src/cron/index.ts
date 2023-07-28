@@ -5,14 +5,14 @@ import logger from "@/utils/logger";
 export const schedule = cron.schedule(
   "* * * * *",
   () => {
-    jobs.forEach((job) => {
+    for (const job of jobs) {
       logger.info("🚀 Running " + job.name);
       try {
         job.callback();
       } catch (error) {
         logger.error("Failed to run " + job.name);
       }
-    });
+    }
   },
   { timezone: "Africa/Nairobi", scheduled: false }
 );
