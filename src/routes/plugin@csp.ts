@@ -7,10 +7,10 @@ export const onRequest: RequestHandler = (event) => {
   const csp = [
     `default-src 'self' `,
     `form-action 'self'`,
-    `font-src 'self'  fonts.googleapis.com fonts.gstatic.com`,
+    `font-src 'self' fonts.googleapis.com fonts.gstatic.com`,
     `frame-ancestors 'self'`,
     `img-src 'self'  data:`,
-    `script-src 'self'   https:  'unsafe-inline'`,
+    `script-src 'self' https: 'unsafe-inline'`,
     `script-src-attr 'none'`,
     `style-src 'self' https: 'unsafe-inline'`,
     `object-src 'none'`,
