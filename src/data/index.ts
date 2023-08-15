@@ -11,7 +11,7 @@ export const tagLine =
 //   "Transforming Design into Seamless Web Experiences: Passionate Front-End Developer Building for Accessibility and User Satisfaction.";
 
 export const contactDesc =
-  "I'm excited to learn about your project and explore how I can assist you. Feel free to fill in the form, and I'll personally reach out to you as soon as possible";
+  "I'm excited to learn about your project and explore how I can assist you. Feel free to fill in the form, and I'll personally reach out to you as soon as possible.";
 
 export const socials = [
   {
