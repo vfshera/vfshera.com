@@ -12,7 +12,7 @@ import { join } from "node:path";
 import compression from "compression";
 import helmet from "helmet";
 
-import logger from "@/utils/logger";
+import logger from "~/utils/logger";
 import { schedule } from "./cron";
 import { getTime } from "./utils";
 

@@ -1,9 +1,9 @@
-import { contactDesc } from "@/data";
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import TextArea from "@/components/form/TextArea";
-import Input from "@/components/form/Input";
+import { contactDesc } from "~/data";
+import { component$, useSignal } from "@builder.io/qwik";
+import TextArea from "~/components/form/TextArea";
+import Input from "~/components/form/Input";
 import { globalAction$, zod$, z, Form } from "@builder.io/qwik-city";
-import { createContact } from "@/db";
+import { createContact } from "~/db/queries";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
@@ -33,27 +33,27 @@ export default component$(() => {
 
   const contactRef = useSignal<HTMLFormElement>();
 
-  useVisibleTask$(({ track }) => {
-    const success = track(() => action.value?.success);
+  // useVisibleTask$(({ track }) => {
+  //   const success = track(() => action.value?.success);
 
-    if (success) {
-      if (contactRef.value) {
-        contactRef.value.reset();
-        Toastify({
-          text: "Thank you for contacting",
-          duration: 3000,
-          close: true,
-          gravity: "top",
-          position: "center",
-          stopOnFocus: true,
-          style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
-          },
-          onClick: function () {},
-        }).showToast();
-      }
-    }
-  });
+  //   if (success) {
+  //     if (contactRef.value) {
+  //       contactRef.value.reset();
+  //       Toastify({
+  //         text: "Thank you for contacting",
+  //         duration: 3000,
+  //         close: true,
+  //         gravity: "top",
+  //         position: "center",
+  //         stopOnFocus: true,
+  //         style: {
+  //           background: "linear-gradient(to right, #00b09b, #96c93d)",
+  //         },
+  //         onClick: function () {},
+  //       }).showToast();
+  //     }
+  //   }
+  // });
 
   return (
     <section title="Contact" id="contact" class="relative bg-slate-800">

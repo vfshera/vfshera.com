@@ -1,8 +1,8 @@
-import { type Contact } from "@/db";
-import { getUnsentContacts, markSent } from "@/db";
-import { transporter } from "@/mailer";
-import { getTime } from "@/utils";
-import logger from "@/utils/logger";
+import { type Contact } from "~/db";
+import { getUnsentContacts, markSent } from "~/db";
+import { transporter } from "~/mailer";
+import { getTime } from "~/utils";
+import logger from "~/utils/logger";
 
 /**
  *

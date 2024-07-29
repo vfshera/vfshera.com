@@ -1,4 +1,4 @@
-import { socials } from "@/data";
+import { socials } from "~/data";
 import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {

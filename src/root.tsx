@@ -5,8 +5,8 @@ import {
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 
-import "@/global.css";
-import Head from "@/components/common/Head";
+import "~/global.css";
+import Head from "~/components/common/Head";
 
 export default component$(() => {
   return (

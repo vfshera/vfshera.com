@@ -1,4 +1,4 @@
-import { projects } from "@/data";
+import { projects } from "~/data";
 import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
