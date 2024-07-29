@@ -1,28 +1,15 @@
 import { drizzle } from "drizzle-orm/mysql2";
-// import { migrate } from "drizzle-orm/mysql2/migrator";
+import env from "~/env";
 import mysql from "mysql2";
-import "dotenv/config";
 
-const connection = mysql.createConnection({
-  host: process.env.DBHOST,
-  user: process.env.DBUSER,
-  password: process.env.DBPASS,
-  database: process.env.DATABASE,
+import * as schema from "./schema";
+
+export const connection = mysql.createConnection({
+  host: env.DB_HOST,
+  user: env.DB_USER,
+  password: env.DB_PASS,
+  database: env.DB_NAME,
+  multipleStatements: env.DB_MIGRATING ? true : undefined,
 });
 
-const db = drizzle(connection);
-
-// (async () => {
-//   if (process.env.DEV) {
-//     console.log();
-//     console.log("DRIZZLE: ⚡ Running migrations");
-//     await migrate(db, { migrationsFolder: "./drizzle" });
-//     console.log("DRIZZLE: Done ✅");
-//     console.log();
-//   }
-// })();
-
-export * from "./queries";
-export * from "./schema";
-
-export { db };
+export const db = drizzle(connection, { schema, mode: "default" });

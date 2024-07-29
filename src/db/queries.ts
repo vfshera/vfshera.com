@@ -1,20 +1,15 @@
-import { eq, sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from ".";
 
-import { type Contact, type NewContact, contacts } from "./schema";
+import { type NewContact, contacts } from "./schema";
 
 export async function getAllContacts() {
-  const allContacts: Contact[] = await db.select().from(contacts);
-
-  return allContacts;
+  return db.query.contacts.findMany();
 }
 export async function getUnsentContacts() {
-  const unsentContacts: Contact[] = await db
-    .select()
-    .from(contacts)
-    .where(sql`${contacts.sent} = 0`);
-
-  return unsentContacts;
+  return db.query.contacts.findMany({
+    where: (post, { eq }) => eq(post.sent, false),
+  });
 }
 
 export async function markSent(id: number) {
