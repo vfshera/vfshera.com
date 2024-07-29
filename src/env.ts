@@ -11,10 +11,18 @@ const stringBoolean = z.coerce
   .default("false");
 
 const EnvSchema = z.object({
+  DOMAIN: z.string(),
   DB_NAME: z.string(),
   DB_HOST: z.string(),
   DB_USER: z.string(),
   DB_PASS: z.string(),
+  MAIL_HOST: z.string(),
+  MAIL_PORT: z.coerce.number(),
+  MAIL_PASSWORD: z.string(),
+  MAIL_FROM_NAME: z.string(),
+  MAIL_FROM_ADDRESS: z.string().email(),
+  MAIL_CC_ADDRESS: z.string().email(),
+  MAIL_USERNAME: z.string().email(),
   DB_MIGRATING: stringBoolean,
 });
 
