@@ -1,1 +1,1 @@
-(() => import("./server/entry.express.js"))();
+(() => import("./server/entry.fastify.js"))();
