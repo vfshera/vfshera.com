@@ -33,28 +33,6 @@ export default component$(() => {
 
   const contactRef = useSignal<HTMLFormElement>();
 
-  // useVisibleTask$(({ track }) => {
-  //   const success = track(() => action.value?.success);
-
-  //   if (success) {
-  //     if (contactRef.value) {
-  //       contactRef.value.reset();
-  //       Toastify({
-  //         text: "Thank you for contacting",
-  //         duration: 3000,
-  //         close: true,
-  //         gravity: "top",
-  //         position: "center",
-  //         stopOnFocus: true,
-  //         style: {
-  //           background: "linear-gradient(to right, #00b09b, #96c93d)",
-  //         },
-  //         onClick: function () {},
-  //       }).showToast();
-  //     }
-  //   }
-  // });
-
   return (
     <section title="Contact" id="contact" class="relative bg-slate-800">
       <div class="wrapper lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between py-[84px] bottom-border">
@@ -67,8 +45,23 @@ export default component$(() => {
         <Form
           ref={contactRef}
           action={action}
-          onSubmitCompleted$={() => {}}
-          class="contact-form"
+          onSubmitCompleted$={() => {
+            if (action.value?.success) {
+              contactRef.value?.reset();
+              Toastify({
+                text: "Thank you for reaching out! We'll get back to you shortly.",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function () {},
+              }).showToast();
+            }
+          }}
         >
           <Input
             label="Name"
