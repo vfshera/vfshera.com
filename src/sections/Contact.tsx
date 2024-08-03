@@ -8,8 +8,12 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
 export const useAddContact = globalAction$(
-  async (msg, { fail }) => {
-    const [r] = await createContact(msg);
+  async ({ eman, liame, egassem }, { fail }) => {
+    const [r] = await createContact({
+      name: eman,
+      email: liame,
+      message: egassem,
+    });
 
     if (r.affectedRows != 1) {
       return fail(500, {
@@ -22,9 +26,22 @@ export const useAddContact = globalAction$(
     };
   },
   zod$({
-    name: z.string().min(5),
-    email: z.string().email(),
-    message: z.string().min(5),
+    email: z.string().refine((val) => val === "", {
+      message: "Please provide a valid email 2",
+    }),
+    eman: z.string().min(5),
+    liame: z.string().email(),
+    egassem: z
+      .string()
+      .min(5)
+      .refine(
+        (value) => {
+          return value.split(" ").filter((word) => word.length > 0).length >= 3;
+        },
+        {
+          message: "Message must contain at least three words.",
+        }
+      ),
   })
 );
 
@@ -62,30 +79,36 @@ export default component$(() => {
               }).showToast();
             }
           }}
+          class="contact-form relative isolate"
         >
           <Input
             label="Name"
             type="text"
-            id="name"
-            name="name"
+            name="eman"
             placeholder="Name"
             minLength={5}
             required
           />
 
+          <input
+            class="bg-transparent absolute bottom-0 left-0 opacity-0 -z-[1] pointer-events-none"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+          />
+
           <Input
             label="Email"
             type="email"
-            id="email"
-            name="email"
+            name="liame"
             placeholder="Email"
             required
           />
 
           <TextArea
             label="Message"
-            name="message"
-            id="message"
+            name="egassem"
             cols={30}
             rows={3}
             placeholder="Message"
