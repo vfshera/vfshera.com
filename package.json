@@ -69,6 +69,7 @@
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.14",
     "nodemailer-express-handlebars": "^6.1.2",
+    "og-img": "^0.2.1",
     "toastify-js": "^1.12.0",
     "tsx": "^4.16.2",
     "winston": "^3.13.1",
