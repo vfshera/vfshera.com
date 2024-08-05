@@ -3,7 +3,7 @@ import { type RequestHandler, type DocumentHead } from "@builder.io/qwik-city";
 
 import TheNavbar from "~/components/common/TheNavbar";
 import TheFooter from "~/components/common/TheFooter";
-import { APP, tagLine } from "~/data";
+import { APP, tagLine } from "~/constants";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   cacheControl({

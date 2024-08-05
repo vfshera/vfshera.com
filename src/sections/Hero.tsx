@@ -1,4 +1,4 @@
-import { APP, tagLine } from "~/data";
+import { APP, tagLine } from "~/constants";
 import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {

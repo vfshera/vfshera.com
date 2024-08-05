@@ -1,4 +1,4 @@
-import { APP } from "~/data";
+import { APP } from "~/constants";
 import { component$ } from "@builder.io/qwik";
 import Socials from "./Socials";
 

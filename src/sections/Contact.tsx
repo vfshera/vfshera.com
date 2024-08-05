@@ -1,4 +1,4 @@
-import { contactDesc } from "~/data";
+import { contactDesc } from "~/constants";
 import { component$, useSignal } from "@builder.io/qwik";
 import TextArea from "~/components/form/TextArea";
 import Input from "~/components/form/Input";
