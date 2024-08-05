@@ -32,8 +32,8 @@ export const head: DocumentHead = {
       content: tagLine,
     },
     {
-      name: "og:image",
-      content: "/og.webp",
+      property: "og:image",
+      content: APP.DOMAIN + "/og-image",
     },
   ],
   links: [
