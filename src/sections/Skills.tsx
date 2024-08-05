@@ -1,4 +1,4 @@
-import { skills } from "~/constants";
+import { skills } from "~/constants/data";
 import { component$ } from "@builder.io/qwik";
 
 const Skills = component$(() => {
