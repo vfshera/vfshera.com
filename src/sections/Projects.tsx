@@ -1,4 +1,4 @@
-import { projects } from "~/constants";
+import { projects } from "~/constants/data";
 import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
@@ -16,19 +16,13 @@ export default component$(() => {
             Contact me
           </a>
 
-          {projects.map((project, index) => (
+          {projects.map(({ photo: Photo, ...project }, index) => (
             <div
               key={index}
               class="project  group/project col-span-2 sm:col-span-1 lg:grid lg:grid-cols-1 lg:grid-rows-[repeat(4,auto)]"
             >
               <picture class="  block mb-5 lg:relative  lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2 lg:after:content-[''] lg:after:absolute lg:after:w-full lg:after:h-full lg:after:top-0 lg:after:bg-black lg:after:opacity-0 lg:after:transition-opacity lg:after:ease-in-out lg:group-focus-within/project:after:opacity-50 lg:group-hover/project:after:opacity-50 ">
-                <img
-                  class="project-photo w-full h-auto"
-                  src={project.photo}
-                  width={540}
-                  height={400}
-                  alt={project.name}
-                />
+                <Photo alt={project.name} />
               </picture>
 
               <h3 class="project-name text-2xl leading-[1.3] font-bold uppercase mb-[7px]">
