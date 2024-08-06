@@ -31,7 +31,6 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/partytown": "^0.8.1",
     "@builder.io/qwik": "^1.7.3",
     "@builder.io/qwik-city": "^1.7.3",
     "@types/eslint": "^8.56.11",
@@ -50,11 +49,12 @@
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.7",
     "typescript": "5.4.5",
-    "undici": "5.22.1",
     "vite": "^5.3.5",
     "vite-tsconfig-paths": "^4.3.2"
   },
   "dependencies": {
+    "undici": "5.22.1",
+    "@builder.io/partytown": "^0.8.1",
     "@fastify/compress": "^6.5.0",
     "@fastify/helmet": "^11.1.1",
     "@fastify/one-line-logger": "^1.4.0",

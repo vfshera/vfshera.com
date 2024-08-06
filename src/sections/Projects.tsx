@@ -37,6 +37,7 @@ export default component$(() => {
                 <a href={project.links.demo} target="_blank" class="underline">
                   View Project
                 </a>
+                {/* eslint-disable-next-line @typescript-eslint/no-unnecessary-condition */}
                 {project.links.code && (
                   <a
                     href={project.links.code}

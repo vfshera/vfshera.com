@@ -7,14 +7,14 @@ import {
 
 import "~/global.css";
 import Head from "~/components/common/Head";
-import { QwikPartytown } from "~/components/partytown";
+// import { QwikPartytown } from "~/components/partytown";
 
 export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <QwikPartytown forward={["_paq"]} />
+        {/* <QwikPartytown forward={["_paq"]} /> */}
         <link rel="manifest" href="/manifest.json" />
         <Head />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,6 @@ export default component$(() => {
         />
 
         <script
-          type="text/partytown"
           dangerouslySetInnerHTML={`
            var _paq = window._paq = window._paq || []; 
           _paq.push(['trackPageView']);
