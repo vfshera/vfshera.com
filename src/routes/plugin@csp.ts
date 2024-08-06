@@ -16,6 +16,7 @@ export const onRequest: RequestHandler = (event) => {
     `object-src 'none'`,
     `base-uri 'self'`,
     `upgrade-insecure-requests`,
+    `connect-src 'self' https://a.vfshera.com`,
   ];
 
   event.headers.set("Content-Security-Policy", csp.join("; "));
