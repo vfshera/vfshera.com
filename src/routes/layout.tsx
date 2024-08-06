@@ -33,7 +33,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: APP.DOMAIN + "/og-image",
+      content: "https://vfshera.com/og-image",
     },
   ],
   links: [
