@@ -77,6 +77,15 @@ export default component$(() => {
                 },
                 onClick: function () {},
               }).showToast();
+
+              if (window._paq) {
+                window._paq.push([
+                  "trackEvent",
+                  "Contact",
+                  "Contact Form Submitted",
+                  "Successful",
+                ]);
+              }
             }
           }}
           class="contact-form relative isolate"
@@ -96,6 +105,17 @@ export default component$(() => {
             name="email"
             id="email"
             placeholder="Email"
+            onBlur$={(_, el) => {
+              if (window._paq && el.value) {
+                window._paq.push([
+                  "trackEvent",
+                  "Contact",
+                  "Honey Pot Filled",
+                  "Spam",
+                  el.value,
+                ]);
+              }
+            }}
           />
 
           <Input
