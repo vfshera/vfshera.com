@@ -1,7 +1,7 @@
 import Contact from "~/sections/Contact";
 import Hero from "~/sections/Hero";
 import Projects from "~/sections/Projects";
-import Skills from "~/sections/Skills";
+// import Skills from "~/sections/Skills";
 import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
@@ -9,7 +9,7 @@ export default component$(() => {
     <div id="home">
       <Hero />
 
-      <Skills />
+      {/* <Skills /> */}
 
       <Projects />
 

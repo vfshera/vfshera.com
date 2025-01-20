@@ -1,6 +1,7 @@
 import blueBee from "~/media/images/blue-bee.webp?jsx";
 import polarisVillage from "~/media/images/polaris-village.webp?jsx";
 import sanjuna from "~/media/images/sanjuna.webp?jsx";
+import jagFood from "~/media/images/jag-food.webp?jsx";
 
 export const skills = [
   {
@@ -15,7 +16,6 @@ export const skills = [
     title: "Astro",
     startYear: 2022,
   },
-
   {
     title: "Node",
     startYear: 2021,
@@ -31,6 +31,12 @@ export const skills = [
 ];
 
 export const projects = [
+  {
+    photo: jagFood,
+    name: "Hey!Jag Food",
+    tags: ["Astro", "Tailwindcss", "Reactjs"],
+    links: { demo: "https://heyjag-dashboard.vercel.app/", code: null },
+  },
   {
     photo: blueBee,
     name: "Bluebee Care",
