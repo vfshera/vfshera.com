@@ -12,6 +12,25 @@ const Head = component$(() => {
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={loc.url.href} />
+      <meta property="og:title" content={head.title} />
+
+      <meta
+        property="og:description"
+        content={head.meta.find((m) => m.name === "description")?.content}
+      />
+
+      <meta
+        property="og:image"
+        content={
+          head.meta.find((m) => m.name === "og:image")?.content ||
+          `${loc.url.origin}/og.png`
+        }
+      />
+
+      <meta name="twitter:card" content="summary_large_image" />
+
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}
