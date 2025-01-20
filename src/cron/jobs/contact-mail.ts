@@ -36,7 +36,7 @@ async function sendEmails() {
   );
 }
 /**
- * Sen thanyou mail
+ * Sen thankyou mail
  * @param contact
  */
 async function sendThankYouMail(contact: Contact) {
