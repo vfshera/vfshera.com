@@ -53,46 +53,48 @@ export default component$(() => {
         </div>
 
         <div>
-          <h2 class="text-[clamp(1.6rem,0.5rem+3.5vw,3.5rem)] leading-[1.2] -tracking-[.028em]">
+          <h2 class="text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] max-lg:text-center lg:text-[clamp(1.6rem,0.5rem+3.5vw,3.5rem)] leading-[1.2] -tracking-[.028em]">
             OSS
           </h2>
-          <p class="text-xl">Open source projects I've contributed to.</p>
+          <p class="text-xl max-lg:text-center">
+            Open source projects I've contributed to.
+          </p>
 
           <div class="space-y-6 mt-5">
             {ossProjects.map((project, index) => (
               <div
                 key={index}
-                class="px-4 py-3 border  border-white/40 rounded-lg"
+                class="p-4 lg:py-3 border  border-white/40 rounded-lg"
               >
                 <p class="text-xl font-bold mb-1 text-[var(--accent)]">
                   {project.title}
                   {project.wip && <span class="opacity-70"> (🚧 WIP)</span>}
                 </p>
-                <p class="mb-2 text-lg max-w-[90%]">{project.description}</p>
-                <div class="flex justify-between items-center mt-3">
-                  <div class="flex gap-2">
+                <p class="mb-2 text-lg lg:max-w-[90%]">{project.description}</p>
+                <div class="flex justify-between max-lg:flex-wrap items-center mt-3">
+                  <div class="flex max-md:flex-wrap gap-2">
                     {[...new Set(project.tags)].map((tag) => (
-                      <p class="" key={tag}>
+                      <p class="leading-none" key={tag}>
                         <span class="text-[var(--accent)]">#</span>
                         {tag}
                       </p>
                     ))}
                   </div>
-                  <div class="flex gap-5 mt-3 *:flex *:gap-1.5">
+                  <div class="flex gap-5 mt-5 md:mt-3 *:flex *:gap-1.5">
                     <a
                       href={project.repo}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <svg
+                        class="h-6 w-auto"
                         xmlns="http://www.w3.org/2000/svg"
                         width="25"
                         height="24"
-                        aria-labelledby="socialGitHub"
                         role="img"
                       >
                         <path
-                          fill="#FFF"
+                          fill="currentColor"
                           fill-rule="evenodd"
                           d="M12.304 0C5.506 0 0 5.506 0 12.304c0 5.444 3.522 10.042 8.413 11.672.615.108.845-.261.845-.584 0-.292-.015-1.261-.015-2.291-3.091.569-3.891-.754-4.137-1.446-.138-.354-.738-1.446-1.261-1.738-.43-.23-1.046-.8-.016-.815.97-.015 1.661.892 1.892 1.261 1.107 1.86 2.876 1.338 3.584 1.015.107-.8.43-1.338.784-1.646-2.738-.307-5.598-1.368-5.598-6.074 0-1.338.477-2.446 1.26-3.307-.122-.308-.553-1.569.124-3.26 0 0 1.03-.323 3.383 1.26.985-.276 2.03-.415 3.076-.415 1.046 0 2.092.139 3.076.416 2.353-1.6 3.384-1.261 3.384-1.261.676 1.691.246 2.952.123 3.26.784.861 1.26 1.953 1.26 3.307 0 4.721-2.875 5.767-5.613 6.074.446.385.83 1.123.83 2.277 0 1.645-.015 2.968-.015 3.383 0 .323.231.708.846.584a12.324 12.324 0 0 0 8.382-11.672C24.607 5.506 19.101 0 12.304 0Z"
                         />
@@ -105,6 +107,18 @@ export default component$(() => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
+                        <svg
+                          class="h-6 w-auto"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M3.75 2h3.5a.75.75 0 0 1 0 1.5h-3.5a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 0 0 .25-.25v-3.5a.75.75 0 0 1 1.5 0v3.5A1.75 1.75 0 0 1 12.25 14h-8.5A1.75 1.75 0 0 1 2 12.25v-8.5C2 2.784 2.784 2 3.75 2m6.854-1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03L9.28 7.78a.75.75 0 0 1-1.042-.018a.75.75 0 0 1-.018-1.042l3.75-3.75l-1.543-1.543A.25.25 0 0 1 10.604 1"
+                          />
+                        </svg>
                         Link
                       </a>
                     )}
@@ -113,7 +127,7 @@ export default component$(() => {
               </div>
             ))}
 
-            <p>... and so much more!</p>
+            <p class="max-lg:text-center">... and so much more!</p>
           </div>
         </div>
       </div>
