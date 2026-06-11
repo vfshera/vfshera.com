@@ -20,7 +20,7 @@ html {
 }
 
 @theme {
-  --font-space-grotesk: "Space Grotesk";
+  --font-space-grotesk: 'Space Grotesk Variable', sans-serif;
 
   --color-brand-dark-1: #141414;
   --color-brand-dark-2: #242424;

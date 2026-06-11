@@ -2,7 +2,7 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": ["pnpm-lock.yaml"],
   "sortTailwindcss": {
-    "functions": ["clsx", "cn", "tv"],
+    "functions": ["clsx", "cn" ],
     "stylesheet": "./src/styles/global.css"
   },
   "sortImports": {
