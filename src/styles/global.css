@@ -1,14 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --bg-body: hsl(0, 0%, 8%);
-  --bg-body2: hsl(0, 0%, 14%);
-  --accent: hsl(153, 71%, 59%);
-  --text1: hsl(0, 0%, 100%);
-  --text2: hsl(0, 0%, 85%);
-  --invalid: hsl(7, 100%, 68%);
+
   --fs-18: 1.125rem;
   --fs-88: 5.5rem;
   --fs-72: 4.5rem;
@@ -26,8 +19,14 @@ html {
   height: 100%;
 }
 
-body {
-  /* overflow-x: hidden; */
+@theme {
+  --font-space-grotesk: "Space Grotesk";
+
+  --color-brand-dark-1: #141414;
+  --color-brand-dark-2: #242424;
+  --color-brand-accent: #4ce19e;
+  --color-brand-gray: #d9d9d9;
+  --color-brand-red: #ff6f5c;
 }
 
 /* .header-xl {
@@ -71,11 +70,9 @@ button {
   text-transform: uppercase;
   color: var(--text1);
   text-decoration: none;
-  background-image: linear-gradient(
-    to right,
-    var(--accent) 75%,
-    var(--accent) 75%
-  );
+  background-image: linear-gradient(to right,
+      var(--accent) 75%,
+      var(--accent) 75%);
   background-position: 0 2.1em;
   background-repeat: repeat-x;
   background-size: 8px 2px;

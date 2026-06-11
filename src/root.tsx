@@ -1,21 +1,25 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, isDev } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 
-import "~/global.css";
+import "~/styles/global.css";
 import Head from "~/components/common/Head";
-// import { QwikPartytown } from "~/components/partytown";
 
 export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
-        <meta charSet="utf-8" />
-        {/* <QwikPartytown forward={["_paq"]} /> */}
-        <link rel="manifest" href="/manifest.json" />
+        <meta charset="utf-8" />
+
+        {!isDev && (
+          <link
+            rel="manifest"
+            href={`${import.meta.env.BASE_URL}manifest.json`}
+          />
+        )}
         <Head />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -28,23 +32,6 @@ export default component$(() => {
           rel="stylesheet"
         />
 
-        <script
-          dangerouslySetInnerHTML={`
-           var _paq = window._paq = window._paq || []; 
-          _paq.push(['trackPageView']);
-          _paq.push(['disableCookies']);          
-          _paq.push(['enableLinkTracking']);
-          _paq.push(['enableHeartBeatTimer']);
-          _paq.push(['trackVisibleContentImpressions', true, 500]);
-          (function() {
-            var u="//a.vfshera.com/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '3']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-          `}
-        />
         <ServiceWorkerRegister />
       </head>
       <body

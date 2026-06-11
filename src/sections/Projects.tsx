@@ -66,7 +66,7 @@ export default component$(() => {
                 key={index}
                 class="p-4 lg:py-3 border  border-white/40 rounded-lg"
               >
-                <p class="text-xl font-bold mb-1 text-[var(--accent)]">
+                <p class="text-xl font-bold mb-1 text-brand-accent">
                   {project.title}
                   {project.wip && <span class="opacity-70"> (🚧 WIP)</span>}
                 </p>
@@ -75,7 +75,7 @@ export default component$(() => {
                   <div class="flex max-md:flex-wrap gap-2">
                     {[...new Set(project.tags)].map((tag) => (
                       <p class="leading-none" key={tag}>
-                        <span class="text-[var(--accent)]">#</span>
+                        <span class="text-brand-accent">#</span>
                         {tag}
                       </p>
                     ))}
