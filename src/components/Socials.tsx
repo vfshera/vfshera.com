@@ -1,5 +1,5 @@
-import { socials } from "~/constants";
 import { component$ } from "@builder.io/qwik";
+import { socials } from "~/constants";
 
 export default component$(() => {
   return (
@@ -10,7 +10,7 @@ export default component$(() => {
           href={social.link}
           title={social.name}
           target="_blank"
-          class="[&>svg>path]:transition-[fill] [&>svg>path]:duration-[250ms] [&>svg>path]:ease-in-out  [&:hover>svg>path]:fill-accent"
+          class="[&:hover>svg>path]:fill-accent [&>svg>path]:transition-[fill] [&>svg>path]:duration-250 [&>svg>path]:ease-in-out"
         >
           {social.name === "Github" && (
             <svg

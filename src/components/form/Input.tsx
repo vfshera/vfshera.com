@@ -6,14 +6,14 @@ interface InputProps extends Omit<InputAttributes, "children"> {
   label: string;
 }
 
-export default component$<InputProps>(({ label, ...attributes }) => {
+export default component$<InputProps>(({ label, ...props }) => {
   return (
     <div class="input-field relative mb-4">
-      <label for={attributes.name} class="visually-hidden">
+      <label for={props.name} class="visually-hidden">
         {label}
       </label>
       <input
-        {...attributes}
+        {...props}
         class="w-full py-4 px-6 border-b border-white bg-transparent text-base leading-[1.625] text-white placeholder:text-white placeholder:opacity-50 placeholder:uppercase peer"
       />
 

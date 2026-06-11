@@ -1,10 +1,10 @@
-import { contactDesc } from "~/constants";
 import { component$, useSignal } from "@builder.io/qwik";
-import TextArea from "~/components/form/TextArea";
-import Input from "~/components/form/Input";
 import { globalAction$, zod$, z, Form } from "@builder.io/qwik-city";
-import { createContact } from "~/db/queries";
 import Toastify from "toastify-js";
+import Input from "~/components/form/Input";
+import TextArea from "~/components/form/TextArea";
+import { contactDesc } from "~/constants";
+import { createContact } from "~/db/queries";
 import "toastify-js/src/toastify.css";
 
 export const useAddContact = globalAction$(
@@ -40,9 +40,9 @@ export const useAddContact = globalAction$(
         },
         {
           message: "Message must contain at least three words.",
-        }
+        },
       ),
-  })
+  }),
 );
 
 export default component$(() => {
@@ -52,9 +52,9 @@ export default component$(() => {
 
   return (
     <section title="Contact" id="contact" class="relative bg-slate-800">
-      <div class="wrapper lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between py-[84px] bottom-border">
+      <div class="wrapper bottom-border py-21 lg:grid lg:grid-cols-[repeat(2,27.8rem)] lg:justify-between">
         <div class="text-center lg:text-left">
-          <h2 class="lg:mb-9 mb-5 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] -tracking-[.028em]">
+          <h2 class="mb-5 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] tracking-[-0.028em] lg:mb-9">
             Contact
           </h2>
           <p class="">{contactDesc}</p>
@@ -77,8 +77,6 @@ export default component$(() => {
                 },
                 onClick: function () {},
               }).showToast();
-
-              
             }
           }}
           class="contact-form relative isolate"
@@ -93,12 +91,11 @@ export default component$(() => {
           />
 
           <input
-            class="bg-transparent absolute bottom-0 left-0 opacity-0 -z-[1] pointer-events-none"
+            class="pointer-events-none absolute bottom-0 left-0 z-[-1] bg-transparent opacity-0"
             type="email"
             name="email"
             id="email"
             placeholder="Email"
-             
           />
 
           <Input
@@ -123,7 +120,7 @@ export default component$(() => {
             <button
               disabled={action.isRunning}
               type="submit"
-              class="bg-transparent border-none"
+              class="border-none bg-transparent"
             >
               Send Message
             </button>
@@ -132,7 +129,7 @@ export default component$(() => {
       </div>
 
       <svg
-        class="rings absolute left-0 bottom-[97px] -translate-x-[75%] -translate-y-[75%] sm:bottom-[47px] lg:-translate-x-[40%] lg:-translate-y-[20%]"
+        class="rings absolute bottom-24.25 left-0 translate-x-[-75%] translate-y-[-75%] sm:bottom-11.75 lg:translate-x-[-40%] lg:translate-y-[-20%]"
         xmlns="http://www.w3.org/2000/svg"
         width="530"
         height="129"

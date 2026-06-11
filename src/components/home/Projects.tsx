@@ -1,17 +1,17 @@
-import { ossProjects, projects } from "~/constants/data";
 import { component$ } from "@builder.io/qwik";
+import { ossProjects, projects } from "~/constants/data";
 
 export default component$(() => {
   return (
     <section title="Projects" class="projects">
-      <div class="wrapper py-[140px] space-y-20">
-        <div class="grid grid-cols-2 gap-10 justify-center text-center sm:justify-start sm:text-left sm:gap-y-[60px] sm:gap-x-6 lg:gap-y-[70px] lg:gap-x-[30px]">
-          <h2 class="col-span-2 sm:col-span-1 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] -tracking-[.028em]">
+      <div class="wrapper space-y-20 py-35">
+        <div class="grid grid-cols-2 justify-center gap-10 text-center sm:justify-start sm:gap-x-6 sm:gap-y-15 sm:text-left lg:gap-x-7.5 lg:gap-y-17.5">
+          <h2 class="col-span-2 text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] tracking-[-0.028em] sm:col-span-1">
             Projects
           </h2>
           <a
             href="#contact"
-            class="underline col-span-2 sm:col-span-1 sm:justify-self-end sm:self-center"
+            class="col-span-2 underline sm:col-span-1 sm:self-center sm:justify-self-end"
           >
             Contact me
           </a>
@@ -19,21 +19,21 @@ export default component$(() => {
           {projects.map(({ photo: Photo, ...project }, index) => (
             <div
               key={index}
-              class="project  group/project col-span-2 sm:col-span-1 lg:grid lg:grid-cols-1 lg:grid-rows-[repeat(4,auto)]"
+              class="project group/project col-span-2 sm:col-span-1 lg:grid lg:grid-cols-1 lg:grid-rows-[repeat(4,auto)]"
             >
-              <picture class="  block mb-5 lg:relative  lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2 lg:after:content-[''] lg:after:absolute lg:after:w-full lg:after:h-full lg:after:top-0 lg:after:bg-black lg:after:opacity-0 lg:after:transition-opacity lg:after:ease-in-out lg:group-focus-within/project:after:opacity-50 lg:group-hover/project:after:opacity-50 ">
+              <picture class="mb-5 block lg:relative lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2 lg:after:absolute lg:after:top-0 lg:after:h-full lg:after:w-full lg:after:bg-black lg:after:opacity-0 lg:after:transition-opacity lg:after:ease-in-out lg:after:content-[''] lg:group-focus-within/project:after:opacity-50 lg:group-hover/project:after:opacity-50">
                 <Photo alt={project.name} />
               </picture>
 
-              <h3 class="project-name text-2xl leading-[1.3] font-bold uppercase mb-[7px]">
+              <h3 class="project-name mb-1.75 text-2xl leading-[1.3] font-bold uppercase">
                 {project.name}
               </h3>
-              <p class="project-tags sm:justify-start sm:gap-5 flex justify-center gap-3 mb-5 uppercase">
+              <p class="project-tags mb-5 flex justify-center gap-3 uppercase sm:justify-start sm:gap-5">
                 {project.tags.map((tag, tagIndex) => (
                   <span key={tagIndex}>{tag}</span>
                 ))}
               </p>
-              <div class="project-links lg:group-focus-within/project:opacity-100 lg:group-hover/project:opacity-100 lg:z-[1] flex flex-col lg:col-start-1 lg:row-start-1 lg:row-end-2 lg:col-end-2 lg:self-center lg:justify-self-center lg:opacity-0 lg:transition-opacity lg:ease-in-out lg:duration-[400ms] items-center  sm:flex-row sm:gap-[30px] gap-5">
+              <div class="project-links flex flex-col items-center gap-5 sm:flex-row sm:gap-7.5 lg:z-1 lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2 lg:self-center lg:justify-self-center lg:opacity-0 lg:transition-opacity lg:duration-400 lg:ease-in-out lg:group-focus-within/project:opacity-100 lg:group-hover/project:opacity-100">
                 <a href={project.links.demo} target="_blank" class="underline">
                   View Project
                 </a>
@@ -53,26 +53,26 @@ export default component$(() => {
         </div>
 
         <div>
-          <h2 class="text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] max-lg:text-center lg:text-[clamp(1.6rem,0.5rem+3.5vw,3.5rem)] leading-[1.2] -tracking-[.028em]">
+          <h2 class="text-[clamp(2.2rem,0.5rem+6.5vw,4.5rem)] leading-[1.2] tracking-[-0.028em] max-lg:text-center lg:text-[clamp(1.6rem,0.5rem+3.5vw,3.5rem)]">
             OSS
           </h2>
           <p class="text-xl max-lg:text-center">
             Open source projects I've contributed to.
           </p>
 
-          <div class="space-y-6 mt-5">
+          <div class="mt-5 space-y-6">
             {ossProjects.map((project, index) => (
               <div
                 key={index}
-                class="p-4 lg:py-3 border  border-white/40 rounded-lg"
+                class="rounded-lg border border-white/40 p-4 lg:py-3"
               >
-                <p class="text-xl font-bold mb-1 text-brand-accent">
+                <p class="mb-1 text-xl font-bold text-brand-accent">
                   {project.title}
                   {project.wip && <span class="opacity-70"> (🚧 WIP)</span>}
                 </p>
                 <p class="mb-2 text-lg lg:max-w-[90%]">{project.description}</p>
-                <div class="flex justify-between max-lg:flex-wrap items-center mt-3">
-                  <div class="flex max-md:flex-wrap gap-2">
+                <div class="mt-3 flex items-center justify-between max-lg:flex-wrap">
+                  <div class="flex gap-2 max-md:flex-wrap">
                     {[...new Set(project.tags)].map((tag) => (
                       <p class="leading-none" key={tag}>
                         <span class="text-brand-accent">#</span>
@@ -80,7 +80,7 @@ export default component$(() => {
                       </p>
                     ))}
                   </div>
-                  <div class="flex gap-5 mt-5 md:mt-3 *:flex *:gap-1.5">
+                  <div class="mt-5 flex gap-5 *:flex *:gap-1.5 md:mt-3">
                     <a
                       href={project.repo}
                       target="_blank"

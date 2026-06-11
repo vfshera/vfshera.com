@@ -4,15 +4,16 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
-
+import "@fontsource-variable/space-grotesk/wght.css";
 import "~/styles/global.css";
-import Head from "~/components/common/Head";
+import Head from "~/components/Head";
 
 export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {!isDev && (
           <link
@@ -21,22 +22,12 @@ export default component$(() => {
           />
         )}
         <Head />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
 
         <ServiceWorkerRegister />
       </head>
       <body
         lang="en"
-        class="bg-gradient-to-br min-h-full flex flex-col from-slate-800 font-space-grotesk text-lg leading-6 text-white via-slate-900 to-neutral-600 bg-fixed"
+        class="flex min-h-full flex-col bg-linear-to-br from-slate-800 via-slate-900 to-neutral-600 bg-fixed font-space-grotesk text-lg leading-6 text-white"
       >
         <RouterOutlet />
       </body>
