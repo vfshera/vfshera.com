@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    format:
+      glob: "**/*.{ts,tsx}"
+      run: pnpm exec format {staged_files}
+
+    lint:
+      glob: "**/*.{ts,tsx}"
+      run: pnpm exec lint:fix {staged_files}

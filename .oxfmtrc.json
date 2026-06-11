@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": ["pnpm-lock.yaml"],
+  "sortTailwindcss": {
+    "functions": ["clsx", "cn", "tv"],
+    "stylesheet": "./src/styles/global.css"
+  },
+  "sortImports": {
+    "newlinesBetween": false,
+    "internalPattern": ["~/**", "$/**"],
+    "customGroups": [],
+    "groups": [
+      ["value-internal"],
+      ["value-parent", "value-sibling", "value-index"],
+      [
+        "type-external",
+        "type-internal",
+        "type-parent",
+        "type-sibling",
+        "type-index"
+      ],
+      "unknown"
+    ]
+  },
+  "tabWidth": 2,
+  "printWidth": 80,
+  "sortPackageJson": true
+}

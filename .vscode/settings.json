@@ -1,4 +1,8 @@
 {
   "css.lint.unknownAtRules": "ignore",
-  "material-icon-theme.activeIconPack": "qwik"
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  }
 }
